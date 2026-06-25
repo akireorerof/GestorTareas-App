@@ -1,37 +1,55 @@
 package com.tuapp.gestortareas.model;
 
 public class Task {
-    private int id;
+
+    private String id;
     private String titulo;
     private String descripcion;
-    private int estado;
+    private Integer estado;
 
-    public Task() {}
+    public Task() {
+    }
 
-    public Task(int id, String titulo, String descripcion, int estado) {
+    public Task(String titulo, String descripcion, Integer estado) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.estado = estado;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
         this.id = id;
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.estado = estado;
     }
 
-    public Task(String titulo, String descripcion, int estado) {
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.estado = estado;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-    public String getTitulo() { return titulo; }
-    public void setTitulo(String titulo) { this.titulo = titulo; }
+    public String getDescripcion() {
+        return descripcion;
+    }
 
-    public String getDescripcion() { return descripcion; }
-    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
-    public int getEstado() { return estado; }
-    public void setEstado(int estado) { this.estado = estado; }
+    public Integer getEstado() {
+        return estado;
+    }
 
-    public boolean isCompletada() { return estado == 1; }
+    public void setEstado(Integer estado) {
+        this.estado = estado;
+    }
+    public void setCompletada(boolean completada) { if (completada) this.estado = 1; else this.estado = 0; }
+
+    public boolean isCompletada() {
+        return estado != null && estado == 1;
+    }
 }
